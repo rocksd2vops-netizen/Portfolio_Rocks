@@ -5,8 +5,8 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
+    base: process.env.BASE_URL || './',
     plugins: [react(), tailwindcss()],
-    base: '/Portfolio_Rocks/',
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
