@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="rdStemGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stopColor="#FFFFFF" />
+      <stop offset="60%" stopColor="#D8B4FE" />
+      <stop offset="100%" stopColor="#8B5CF6" />
+    </linearGradient>
+    <linearGradient id="rdLoopGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#8B5CF6" />
+      <stop offset="50%" stopColor="#A855F7" />
+      <stop offset="100%" stopColor="#C084FC" />
+    </linearGradient>
+    <linearGradient id="rdLegGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#A855F7" />
+      <stop offset="100%" stopColor="#7C3AED" />
+    </linearGradient>
+    <linearGradient id="rdRockBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#8B5CF6" stopOpacity="0.8" />
+      <stop offset="50%" stopColor="#A855F7" stopOpacity="0.4" />
+      <stop offset="100%" stopColor="#6D28D9" stopOpacity="0.7" />
+    </linearGradient>
+  </defs>
+
+  <!-- Hexagonal Crystalline Contour -->
+  <polygon
+    points="50,6 88,27.5 88,72.5 50,94 12,72.5 12,27.5"
+    fill="#11111A"
+    fill-opacity="0.85"
+    stroke="url(#rdRockBorder)"
+    stroke-width="2.5"
+    stroke-linejoin="round"
+  />
+
+  <!-- Subtle grid coords -->
+  <line x1="50" y1="6" x2="50" y2="17" stroke="#8B5CF6" stroke-opacity="0.4" stroke-width="1.5" stroke-dasharray="2 2" />
+  <line x1="50" y1="83" x2="50" y2="94" stroke="#8B5CF6" stroke-opacity="0.4" stroke-width="1.5" stroke-dasharray="2 2" />
+
+  <!-- Code Chevron Brackets < > -->
+  <path d="M 23 44 L 17 50 L 23 56" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.9" />
+  <path d="M 77 44 L 83 50 L 77 56" stroke="#A855F7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.9" />
+
+  <!-- Monogram R + D Stem with Binary Node Endpoints -->
+  <path d="M 34 26 L 34 74" stroke="url(#rdStemGrad)" stroke-width="6" stroke-linecap="round" />
+  <circle cx="34" cy="26" r="3" fill="#FFFFFF" />
+  <circle cx="34" cy="74" r="3" fill="#8B5CF6" />
+
+  <!-- Geometric Upper Loop -->
+  <path d="M 34 26 H 55 C 67 26 73 33 73 40 C 73 47 67 50 55 50 H 34" stroke="url(#rdLoopGrad)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Inner Code Slash -->
+  <line x1="43" y1="34" x2="49" y2="42" stroke="#F5F5F7" stroke-width="2.5" stroke-linecap="round" stroke-opacity="0.85" />
+
+  <!-- Angular Kick Leg -->
+  <path d="M 49 50 L 68 74" stroke="url(#rdLegGrad)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Terminal Nexus Point -->
+  <circle cx="49" cy="50" r="2.5" fill="#C084FC" />
+</svg>

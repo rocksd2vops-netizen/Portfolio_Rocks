@@ -1,5 +1,21 @@
 import React, { useState } from 'react';
 import { Terminal, Code, Database, Cpu, Wrench, Layers, Sparkles } from 'lucide-react';
+import { getAssetUrl } from '../utils/assets.ts';
+
+const TECH_ICONS: Record<string, string> = {
+  JavaScript: 'images/technologies/javascript.svg',
+  TypeScript: 'images/technologies/typescript.svg',
+  Python: 'images/technologies/python.svg',
+  PHP: 'images/technologies/php.svg',
+  React: 'images/technologies/react.svg',
+  'Node.js': 'images/technologies/nodejs.svg',
+  MySQL: 'images/technologies/mysql.svg',
+  'Tailwind CSS': 'images/technologies/tailwind.svg',
+  Git: 'images/technologies/git.svg',
+  GitHub: 'images/technologies/git.svg',
+  'Google AI Studio': 'images/technologies/gemini-ai.svg',
+  'AI Prompt Engineering': 'images/technologies/gemini-ai.svg',
+};
 
 interface SkillRow {
   category: string;
@@ -161,7 +177,19 @@ export const Skills: React.FC = () => {
                     key={`${skill.name}-${rIdx}-${sIdx}`}
                     className="flex items-center gap-3 px-5 py-3 rounded-xl crystal-glass-card border border-white/10 hover:border-[#8B5CF6]/70 transition-all duration-300 shadow-lg shadow-black/40 group shrink-0"
                   >
-                    <div className="w-2 h-2 rounded-full bg-[#8B5CF6] group-hover:scale-125 group-hover:bg-[#A855F7] transition-all" />
+                    {TECH_ICONS[skill.name] ? (
+                      <img
+                        src={getAssetUrl(TECH_ICONS[skill.name])}
+                        alt=""
+                        width={18}
+                        height={18}
+                        className="w-4 h-4 object-contain shrink-0 group-hover:scale-110 transition-transform"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    ) : (
+                      <div className="w-2 h-2 rounded-full bg-[#8B5CF6] group-hover:scale-125 group-hover:bg-[#A855F7] transition-all" />
+                    )}
                     <span className="text-sm font-bold text-[#F5F5F7] font-heading tracking-wide">
                       {skill.name}
                     </span>

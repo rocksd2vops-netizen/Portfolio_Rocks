@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { getAssetUrl } from '../utils/assets.ts';
 
 interface CodeSnippet {
   language: string;
@@ -268,12 +269,12 @@ export const CodeBackground: React.FC = () => {
       <div className="absolute top-1/3 -right-32 w-[500px] h-[500px] bg-[#A855F7]/8 rounded-full blur-[130px]" />
       <div className="absolute -bottom-32 left-1/3 w-[650px] h-[650px] bg-[#8B5CF6]/8 rounded-full blur-[160px]" />
 
-      {/* Grid line texture overlay */}
+      {/* Local SVG Grid Matrix Pattern */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.045] pointer-events-none"
         style={{
-          backgroundImage: `linear-gradient(to right, #8B5CF6 1px, transparent 1px), linear-gradient(to bottom, #8B5CF6 1px, transparent 1px)`,
-          backgroundSize: '48px 48px',
+          backgroundImage: `url(${getAssetUrl('images/backgrounds/matrix-grid.svg')})`,
+          backgroundRepeat: 'repeat',
         }}
       />
 

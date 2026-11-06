@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowDown, MessageSquare, Briefcase, Sparkles, Terminal, Code2, Layers, Cpu, ShieldCheck } from 'lucide-react';
 import { Logo } from './Logo.tsx';
+import { getAssetUrl } from '../utils/assets.ts';
 
 const TECH_STRIP = [
   'HTML5',
@@ -14,6 +15,17 @@ const TECH_STRIP = [
   'GitHub',
   'Node.js',
 ];
+
+const HERO_TECH_ICONS: Record<string, string> = {
+  JavaScript: 'images/technologies/javascript.svg',
+  React: 'images/technologies/react.svg',
+  Python: 'images/technologies/python.svg',
+  PHP: 'images/technologies/php.svg',
+  MySQL: 'images/technologies/mysql.svg',
+  Git: 'images/technologies/git.svg',
+  GitHub: 'images/technologies/git.svg',
+  'Node.js': 'images/technologies/nodejs.svg',
+};
 
 export const Hero: React.FC = () => {
   const scrollTo = (id: string) => {
@@ -209,7 +221,19 @@ export const Hero: React.FC = () => {
                   key={`${tech}-${idx}`}
                   className="flex items-center gap-2.5 px-4 py-2 rounded-xl crystal-glass-card border border-white/10 hover:border-[#8B5CF6]/60 transition-colors whitespace-nowrap shrink-0 group"
                 >
-                  <Code2 className="w-3.5 h-3.5 text-[#8B5CF6] group-hover:text-[#A855F7] transition-colors" />
+                  {HERO_TECH_ICONS[tech] ? (
+                    <img
+                      src={getAssetUrl(HERO_TECH_ICONS[tech])}
+                      alt=""
+                      width={16}
+                      height={16}
+                      className="w-3.5 h-3.5 object-contain shrink-0 group-hover:scale-110 transition-transform"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  ) : (
+                    <Code2 className="w-3.5 h-3.5 text-[#8B5CF6] group-hover:text-[#A855F7] transition-colors" />
+                  )}
                   <span className="text-xs sm:text-sm font-semibold tracking-wide text-[#F5F5F7] font-mono">
                     {tech}
                   </span>

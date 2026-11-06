@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ExternalLink, Github, Layers, ArrowUpRight, X, CheckCircle2, Terminal } from 'lucide-react';
+import { getAssetUrl } from '../utils/assets.ts';
 
 interface Project {
   id: string;
@@ -24,7 +25,7 @@ const PROJECTS: Project[] = [
     longDescription:
       'A comprehensive SaaS analytics engine built to ingest high-frequency user telemetry, render low-latency charts, and provide instant insights. Features optimized data pipelines, responsive UI layouts, and reactive data polling.',
     technologies: ['React', 'TypeScript', 'Node.js', 'Tailwind CSS', 'REST APIs', 'MySQL'],
-    image: '/src/assets/images/project_flow_saas_1793827708114.jpg',
+    image: getAssetUrl('images/projects/analytics-pulse.webp'),
     githubUrl: 'https://github.com/rocksd2vops-netizen',
     highlights: [
       'Sub-20ms rendering of complex multi-series timecharts',
@@ -42,7 +43,7 @@ const PROJECTS: Project[] = [
     longDescription:
       'An avant-garde digital storefront crafted for high-end retail. Features fluid cart interactions, faceted category filters, high-resolution product showcases, and seamless checkout ergonomics.',
     technologies: ['React', 'JavaScript', 'Tailwind CSS', 'PHP', 'CRUD Operations', 'REST APIs'],
-    image: '/src/assets/images/project_ecommerce_api_1793827708732.jpg',
+    image: getAssetUrl('images/projects/luna-collective.webp'),
     githubUrl: 'https://github.com/rocksd2vops-netizen',
     highlights: [
       'Frictionless client-side product filtering without page reloads',
@@ -60,7 +61,7 @@ const PROJECTS: Project[] = [
     longDescription:
       'A modern developer operations dashboard simulating continuous deployment pipelines, live server resource usage, git commit tracking, and terminal stream execution logs.',
     technologies: ['Python', 'Node.js', 'React', 'Git Integration', 'Express', 'Cloudflare'],
-    image: '/src/assets/images/project_dev_terminal_1793827710754.jpg',
+    image: getAssetUrl('images/projects/nebula-deploy.webp'),
     githubUrl: 'https://github.com/rocksd2vops-netizen',
     highlights: [
       'Interactive terminal streaming simulation with colorized stdout',
@@ -78,7 +79,7 @@ const PROJECTS: Project[] = [
     longDescription:
       'An advanced prompt design workspace built to iterate, benchmark, and deploy system instructions using Google AI Studio and Gemini models. Includes structured JSON schema validation and automated prompt chains.',
     technologies: ['Google AI Studio', 'Gemini API', 'Python', 'TypeScript', 'JSON Schema', 'REST APIs'],
-    image: '/src/assets/images/project_ai_workflow_1793827708353.jpg',
+    image: getAssetUrl('images/projects/synapse-studio.webp'),
     githubUrl: 'https://github.com/rocksd2vops-netizen',
     highlights: [
       'Multi-step prompt chaining with variable interpolation',
@@ -151,9 +152,12 @@ export const Projects: React.FC = () => {
                 <img
                   src={project.image}
                   alt={project.title}
+                  width={800}
+                  height={450}
                   className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                   referrerPolicy="no-referrer"
                   loading="lazy"
+                  decoding="async"
                 />
 
                 {/* Dark gradient overlay for typography readability */}
@@ -253,8 +257,11 @@ export const Projects: React.FC = () => {
               <img
                 src={selectedProject.image}
                 alt={selectedProject.title}
+                width={800}
+                height={450}
                 className="w-full h-full object-cover object-top"
                 referrerPolicy="no-referrer"
+                decoding="async"
               />
             </div>
 

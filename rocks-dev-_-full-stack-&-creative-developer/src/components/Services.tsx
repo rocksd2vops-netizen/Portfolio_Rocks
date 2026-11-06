@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowUpRight, Monitor, Server, Layers, Palette, Database, Sparkles, Gauge } from 'lucide-react';
+import { getAssetUrl } from '../utils/assets.ts';
 
 interface ServiceItem {
   id: string;
@@ -9,6 +10,7 @@ interface ServiceItem {
   detailedDesc: string;
   deliverables: string[];
   icon: React.ComponentType<{ className?: string }>;
+  image: string;
 }
 
 const SERVICES_DATA: ServiceItem[] = [
@@ -21,6 +23,7 @@ const SERVICES_DATA: ServiceItem[] = [
       'Engineered with React, TypeScript, and modern CSS frameworks. High-performance, pixel-precise web interfaces that deliver fluid animations, zero-lag interactions, and optimal responsiveness across all viewports.',
     deliverables: ['Custom React Applications', 'State Management & Hooks', 'Responsive Mobile-First UI', 'Tailwind & Modern CSS'],
     icon: Monitor,
+    image: getAssetUrl('images/services/service-frontend.webp'),
   },
   {
     id: 'backend',
@@ -31,6 +34,7 @@ const SERVICES_DATA: ServiceItem[] = [
       'Robust server architectures built with Node.js, Express, PHP, and Python. Engineered for high concurrency, secure authentication workflows, robust error handling, and clean RESTful API standards.',
     deliverables: ['REST API Endpoints', 'Authentication & JWT', 'Server Controllers & Middlewares', 'Microservice Pipelines'],
     icon: Server,
+    image: getAssetUrl('images/services/service-backend.webp'),
   },
   {
     id: 'fullstack',
@@ -41,6 +45,7 @@ const SERVICES_DATA: ServiceItem[] = [
       'End-to-end digital solutions uniting client-side dynamics with powerful server and persistence layers. From architecture definition to final cloud deployment, delivering unified, maintainable software systems.',
     deliverables: ['End-to-End Web Apps', 'Unified Monolith or SPA + API', 'Third-Party Webhooks & Auth', 'Production Cloud Deployments'],
     icon: Layers,
+    image: getAssetUrl('images/services/service-fullstack.webp'),
   },
   {
     id: 'design',
@@ -51,6 +56,7 @@ const SERVICES_DATA: ServiceItem[] = [
       'Design systems grounded in visual hierarchy, human ergonomics, and modern aesthetic restraint. Crafting dark-mode experiences, intentional typography pairings, and intuitive user journeys that elevate brand authority.',
     deliverables: ['Interactive Prototyping', 'Design Systems & Tokens', 'Ergonomic Flow & Wireframes', 'Dark Mode Architecture'],
     icon: Palette,
+    image: getAssetUrl('images/services/service-design.webp'),
   },
   {
     id: 'database',
@@ -61,6 +67,7 @@ const SERVICES_DATA: ServiceItem[] = [
       'Structured relational database schemas with MySQL and SQL. Optimized queries, normalized table designs, indexed foreign keys, and secure transactional CRUD operations tailored for data integrity.',
     deliverables: ['Relational Schema Design', 'Complex SQL Query Optimization', 'Secure CRUD Systems', 'Data Migration & Indexing'],
     icon: Database,
+    image: getAssetUrl('images/services/service-database.webp'),
   },
   {
     id: 'ai',
@@ -71,6 +78,7 @@ const SERVICES_DATA: ServiceItem[] = [
       'Advanced prompt design and generative AI integration leveraging Google AI Studio and Gemini models. Designing deterministic system instructions, structured output schemas, and automated agent pipelines.',
     deliverables: ['Advanced System Prompt Engineering', 'Google AI Studio Integrations', 'Automated Content & Code Pipelines', 'Structured Output Parsing'],
     icon: Sparkles,
+    image: getAssetUrl('images/services/service-ai.webp'),
   },
   {
     id: 'optimization',
@@ -81,6 +89,7 @@ const SERVICES_DATA: ServiceItem[] = [
       'Comprehensive performance tuning: Core Web Vitals optimization, bundle size minimization, asset compression, lazy loading, SEO enhancements, and edge caching via Cloudflare.',
     deliverables: ['Lighthouse 95+ Scores', 'Bundle & CSS Minimization', 'Core Web Vitals Tuning', 'SEO & OpenGraph Architecture'],
     icon: Gauge,
+    image: getAssetUrl('images/services/service-optimization.webp'),
   },
 ];
 
@@ -141,13 +150,27 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
 
                 <div>
                   {/* Top Bar with bespoke Icon and Editorial Numbering */}
-                  <div className="flex items-center justify-between mb-5">
+                  <div className="flex items-center justify-between mb-4">
                     <div className="p-3 rounded-xl crystal-glass-subtle text-[#8B5CF6] border border-white/10 group-hover:scale-105 group-hover:text-[#A855F7] transition-all">
                       <Icon className="w-6 h-6" />
                     </div>
                     <span className="text-xs font-mono text-[#9696A5]/60 group-hover:text-[#8B5CF6] transition-colors">
                       {service.number}
                     </span>
+                  </div>
+
+                  {/* Service Graphic Preview Banner */}
+                  <div className="relative aspect-[21/9] w-full rounded-xl overflow-hidden mb-4 border border-white/5 bg-[#08080D]">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      width={400}
+                      height={170}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover opacity-75 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A12] via-transparent to-transparent pointer-events-none" />
                   </div>
 
                   <h3 className="text-xl font-bold text-[#F5F5F7] font-heading mb-1.5 group-hover:text-[#D8B4FE] transition-colors">
